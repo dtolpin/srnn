@@ -71,7 +71,7 @@ class TrainSRNN_midi(Train):
                 assert len(elbo) == u.shape[0]
 
                 # get non padded samples
-                n_not_padded = np.sum(mask[:, 0])
+                n_not_padded = int(np.sum(mask[:, 0]))
                 assert n_not_padded <= u.shape[0]
                 elbo = elbo[:n_not_padded]  # Remove samples taht are all padded
 
